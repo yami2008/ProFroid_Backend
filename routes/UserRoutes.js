@@ -1,8 +1,8 @@
 import {Router} from "express";
 
-import validatorMiddleware from "../middlewares/ValidatorMiddleware.js";
-import objectIdMiddleware from "../middlewares/ObjectIdMiddleware.js";
-import errorHandler from "../middlewares/ErrorHandler.js";
+import validatorMiddleware from "../middlewares/vendor/ValidatorMiddleware.js";
+import objectIdMiddleware from "../middlewares/vendor/ObjectIdMiddleware.js";
+import errorHandler from "../middlewares/vendor/ErrorHandler.js";
 
 
 import {destroy, index, show, store, update} from "../controllers/UserController.js";

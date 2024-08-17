@@ -6,18 +6,22 @@ import dotenv from "dotenv";
 const app = express();
 dotenv.config();
 
+app.use('/public' , express.static('./public'));
+
 app.use(express.json());
 app.use(cors());
 
 import {userRoutes} from "./routes/UserRoutes.js";
 import {authRouter} from "./routes/AuthRoutes.js";
+import {coldApplianceRoutes} from "./routes/ColdApplianceRoutes.js";
 app.use(userRoutes);
 app.use(authRouter);
+app.use(coldApplianceRoutes)
 
-// const notFoundMiddleware = require('./middlewares/notFound.middleware');
-// const errorMiddleware = require('./middlewares/errorMiddleware');
-// app.use(notFoundMiddleware);
-// app.use(errorMiddleware);
+import {routeNotFoundMiddleware} from "./middlewares/vendor/RouteNotFoundMiddleware.js";
+import {errorMiddleware} from "./middlewares/vendor/ErrorMiddleware.js";
+app.use(routeNotFoundMiddleware);
+app.use(errorMiddleware);
 
 mongoose
     .connect(`mongodb://${process.env.DB_URL}/${process.env.DB_NAME}`)
