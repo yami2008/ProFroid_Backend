@@ -17,17 +17,17 @@ const errorMessages = {
 const coldApplianceSchema = Joi.object({
     name: Joi.string().min(3).max(50).trim().required().label("Nom"),
     brand: Joi.string().min(2).max(30).trim().required().label("Brand"),
-    model: Joi.string().min(2).max(30).trim().required().label("Model"),
-    serial_number: Joi.string().alphanum().min(5).max(20).trim().required().label("Numéro de série"),
+    // model: Joi.string().min(2).max(30).trim().required().label("Model"),
+    serial_number: Joi.string().min(5).max(20).trim().required().label("Numéro de série"),
     type: Joi.string().required().label("Type"),
-    capacity : Joi.number().min(0).max(10000).optional().label("Capacity"),
-    power : Joi.number().min(0).max(10000).optional().label("Power"),
-    height : Joi.number().min(0).max(10000).optional().label("Hauteur"),
-    width : Joi.number().min(0).max(10000).optional().label("Largeur"),
-    depth : Joi.number().min(0).max(10000).optional().label("Profondeur"),
+    // capacity : Joi.number().min(0).max(10000).optional().label("Capacity"),
+    // power : Joi.number().min(0).max(10000).optional().label("Power"),
+    // height : Joi.number().min(0).max(10000).optional().label("Hauteur"),
+    // width : Joi.number().min(0).max(10000).optional().label("Largeur"),
+    // depth : Joi.number().min(0).max(10000).optional().label("Profondeur"),
     price: Joi.number().positive().required().label("Prix"),
-    stock_quantity: Joi.number().integer().positive().required().label("Qauntity"),
-    features : Joi.array().items(Joi.string().min(2).max(100).trim())
+    // stock_quantity: Joi.number().integer().positive().required().label("Qauntity"),
+    // features : Joi.array().items(Joi.string().min(2).max(100).trim())
 }).messages(errorMessages);
 
 export default coldApplianceSchema;
