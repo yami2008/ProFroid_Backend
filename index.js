@@ -14,9 +14,11 @@ app.use(cors());
 import {userRoutes} from "./routes/UserRoutes.js";
 import {authRouter} from "./routes/AuthRoutes.js";
 import {coldApplianceRoutes} from "./routes/ColdApplianceRoutes.js";
+import {factureRouter} from "./routes/FactureRoute.js";
 app.use(userRoutes);
 app.use(authRouter);
-app.use(coldApplianceRoutes)
+app.use(coldApplianceRoutes);
+app.use(factureRouter);
 
 import {routeNotFoundMiddleware} from "./middlewares/vendor/RouteNotFoundMiddleware.js";
 import {errorMiddleware} from "./middlewares/vendor/ErrorMiddleware.js";
