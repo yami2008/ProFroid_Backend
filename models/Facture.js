@@ -1,8 +1,10 @@
 import mongoose from "mongoose";
 
 const produitSchema = new mongoose.Schema({
-    nom: String,
-    prix: Number,
+    id: { 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'ColdAppliance'
+    },
     quantite: Number
 });
 
